@@ -41,7 +41,7 @@ class Logs extends StatelessWidget {
 }
 
 class LogsPage extends StatefulWidget {
-  LogsPage({Key key}) : super(key: key);
+  LogsPage({Key? key}) : super(key: key);
   @override
   _LogsPageState createState() => new _LogsPageState();
 }
@@ -152,19 +152,20 @@ Widget logItem(String type) {
                 padding: EdgeInsets.all(5),
                 child: new Text(
                   () {
-                    if (type == "dmesg") {
-                      return dmesg();
-                    }
-                    if (type == "xorg") {
-                      return xorg();
-                    }
-                    if (type == "message") {
-                      return message();
-                    }
-                    if (type == "fs") {
-                      return fs();
-                    }
-                  }(),
+                        if (type == "dmesg") {
+                          return dmesg();
+                        }
+                        if (type == "xorg") {
+                          return xorg();
+                        }
+                        if (type == "message") {
+                          return message();
+                        }
+                        if (type == "fs") {
+                          return fs();
+                        }
+                      }() ??
+                      "null",
                   style: new TextStyle(
                       fontSize: 15.0,
                       color: const Color(0xFFf2f2f2),
