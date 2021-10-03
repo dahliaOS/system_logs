@@ -1,0 +1,10 @@
+{
+      "id": "io.dahliaos.system_logs",
+      "altName": "system_logs",
+      "realName": "System Logs",
+      "version": "dahliaOS-latest",
+      "description": "View and report errors",
+      "sourceCode": "https://github.com/dahliaOS/system_logs",
+      "hash": "DAP_AUTOMATION_PKGHASH",
+      "architecture": "x86_64"
+},

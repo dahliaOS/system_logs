@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=System Logs
+Exec=system_logs
+Terminal=false
+Icon=system_logs
+Type=Application
+Categories=Utility;
