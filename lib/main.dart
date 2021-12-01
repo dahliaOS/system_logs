@@ -52,7 +52,8 @@ class _LogsPageState extends State<LogsPage> {
     logItem("dmesg"),
     logItem("xorg"),
     logItem("message"),
-    logItem("fs")
+    logItem("fs"),
+    logItem("hw")
   ];
 
   @override
@@ -91,6 +92,11 @@ class _LogsPageState extends State<LogsPage> {
                 icon: Icon(Icons.storage),
                 selectedIcon: Icon(Icons.storage),
                 label: Text('Filesystem Logs'),
+              ),
+                NavigationRailDestination(
+                icon: Icon(Icons.storage),
+                selectedIcon: Icon(Icons.device_hub),
+                label: Text('Hardware'),
               ),
             ],
           ),
@@ -139,6 +145,15 @@ String fs() {
   return verString;
 }
 
+String hw() {
+  ProcessResult result = Process.runSync('lshw', ['-quiet']);
+  var verString = result.stdout;
+  if (verString == null) {
+    return "ERROR: Couldn't retrieve hardware configuration";
+  }
+  return verString;
+}
+
 Widget logItem(String type) {
   return new Container(
     child: new Column(
@@ -163,6 +178,9 @@ Widget logItem(String type) {
                         }
                         if (type == "fs") {
                           return fs();
+                        }
+                        if (type == "hw") {
+                          return hw();
                         }
                       }() ??
                       "null",
