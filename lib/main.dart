@@ -93,7 +93,7 @@ class _LogsPageState extends State<LogsPage> {
                 selectedIcon: Icon(Icons.storage),
                 label: Text('Filesystem Logs'),
               ),
-                NavigationRailDestination(
+              NavigationRailDestination(
                 icon: Icon(Icons.storage),
                 selectedIcon: Icon(Icons.device_hub),
                 label: Text('Hardware'),
@@ -193,10 +193,6 @@ Widget logItem(String type) {
             ),
           ),
         ),
-        new Container(
-          height: 150,
-          child: Terminal(),
-        )
       ],
     ),
   );
